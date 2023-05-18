@@ -13,6 +13,6 @@ Proyecto de prueba con Net Core como lenguaje backend y React como parte del fro
 3 - Ejecutar npm start para inicializar la web app. 
 
 # Capturas de pantalla
-![Contribuyentes](Contribuyentes.png)  
+![Contribuyentes](Contribuyentes.PNG)  
 
-![Comprobantes](Comprobantes.png) 
+![Comprobantes](Comprobantes.PNG) 
