@@ -1,6 +1,6 @@
 export interface Comprobante {
-    itbis18: number;
-    monto: string;
-    ncf: string;
-    rncCedula: string;
+  itbis18: number;
+  monto: number;
+  ncf: string;
+  rncCedula: string;
 }

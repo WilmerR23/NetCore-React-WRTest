@@ -5,7 +5,6 @@
   "dependencies": {
     "@emotion/react": "^11.11.0",
     "@emotion/styled": "^11.11.0",
-    "@fontsource/roboto": "^4.5.8",
     "@mui/icons-material": "^5.11.16",
     "@mui/material": "^5.13.0",
     "@testing-library/jest-dom": "^5.16.5",
@@ -27,8 +26,9 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "test": "react-scripts test --transformIgnorePatterns \"node_modules/(?!axios)/\"",
+    "eject": "react-scripts eject",
+    "prettier-format": "prettier --config .prettierrc src/**/*.{ts,tsx} --write"
   },
   "eslintConfig": {
     "extends": [
@@ -49,6 +49,6 @@
     ]
   },
   "devDependencies": {
-    "@types/axios": "^0.14.0"
+    "prettier": "^2.8.8"
   }
 }

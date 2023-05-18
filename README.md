@@ -1,5 +1,5 @@
 # NetCore-React-WRTest
-Proyecto de prueba con Net Core como lenguaje backend y React como parte del frontend.
+Proyecto de prueba para aplicar a vacante en la DGII con Net Core como lenguaje backend y React como parte del frontend.
 
 # Pasos para probar api
 1 - Colocar su servidor local en el connectionString del archivo appsettings.  
@@ -16,3 +16,15 @@ Proyecto de prueba con Net Core como lenguaje backend y React como parte del fro
 ![Contribuyentes](Contribuyentes.PNG)  
 
 ![Comprobantes](Comprobantes.PNG) 
+
+# Stack
+Net 7  
+React  
+EF Core  
+Material UI  
+Jest  
+XUnit  
+Moq  
+AutoMapper  
+NLog  
+Prettier  

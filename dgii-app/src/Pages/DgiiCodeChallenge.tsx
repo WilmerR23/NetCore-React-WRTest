@@ -1,9 +1,7 @@
 import TableContribuyentes from '../Components/TableContribuyentes';
 
 const DgiiCodeChallenge = () => {
-    return (        
-        <TableContribuyentes />
-    );
-}
+  return <TableContribuyentes />;
+};
 
 export default DgiiCodeChallenge;

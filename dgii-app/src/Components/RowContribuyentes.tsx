@@ -26,24 +26,28 @@ const RowContribuyentes: React.FC<RowProps> = ({ Contribuyente }) => {
   const [count, setCount] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
   const { rncCedula } = Contribuyente;
-  
+
   const fetch = async (page: number, rowsPerPage: number) => {
     setIsLoading(true);
-    const response = await getData<ResponseComprobante>(`Comprobantes/${rncCedula}`, page + 1, rowsPerPage);
+    const response = await getData<ResponseComprobante>(
+      `Comprobantes/${rncCedula}`,
+      page + 1,
+      rowsPerPage
+    );
     if (response) {
       setComprobantes(response.items);
       setCount(response.count);
     }
     setIsLoading(false);
-  }
-  
+  };
+
   const handleCollapse = async (open: boolean): Promise<void> => {
     if (!open) {
       fetch(0, 5);
     }
     setOpen(!open);
-  } 
-    
+  };
+
   return (
     <React.Fragment>
       <TableRow>
@@ -69,33 +73,35 @@ const RowContribuyentes: React.FC<RowProps> = ({ Contribuyente }) => {
               <Typography variant="h6" gutterBottom component="div">
                 Comprobantes
               </Typography>
-            <TablePaginationWrapper 
-              count={count} 
-              onChangeEvent={(page: number, rowsPerPage: number) => fetch(page, rowsPerPage)}
+              <TablePaginationWrapper
+                count={count}
+                onChangeEvent={(page: number, rowsPerPage: number) =>
+                  fetch(page, rowsPerPage)
+                }
               >
-              { isLoading ? 
-            <TableBody>
-              <TableRow>
-                  <TableCell align="center" colSpan={3}>
-                    <ClipLoader
-                      color={"#36d7b7"}
-                      loading={isLoading}
-                      size={30}
-                      aria-label="Loading Spinner"
-                      data-testid="loader"
-                    />
-                  </TableCell>
-              </TableRow>
-            </TableBody>
-          : 
-          <TableComprobantes Comprobantes={Comprobantes} />
-        }
-            </TablePaginationWrapper>
+                {isLoading ? (
+                  <TableBody>
+                    <TableRow>
+                      <TableCell align="center" colSpan={3}>
+                        <ClipLoader
+                          color={'#36d7b7'}
+                          loading={isLoading}
+                          size={30}
+                          aria-label="Loading Spinner"
+                          data-testid="loader"
+                        />
+                      </TableCell>
+                    </TableRow>
+                  </TableBody>
+                ) : (
+                  <TableComprobantes Comprobantes={Comprobantes} />
+                )}
+              </TablePaginationWrapper>
             </Box>
           </Collapse>
         </TableCell>
       </TableRow>
     </React.Fragment>
   );
-}
+};
 export default RowContribuyentes;

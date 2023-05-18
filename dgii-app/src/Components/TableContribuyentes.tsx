@@ -19,39 +19,48 @@ const TableContribuyentes: React.FC = () => {
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
-      setIsLoading(true);
-      fetch(0, 10).catch(console.error);
+    setIsLoading(true);
+    fetch(0, 10).catch(console.error);
   }, []);
-  
+
   const fetch = async (page: number, rowsPerPage: number) => {
-    const response = await getData<ResponseContribuyente>("Contribuyentes", page + 1, rowsPerPage);
+    const response = await getData<ResponseContribuyente>(
+      'Contribuyentes',
+      page + 1,
+      rowsPerPage
+    );
     if (response) {
       setContribuyentes(response.items);
       setCount(response.count);
     }
     setIsLoading(false);
-  }
+  };
 
   return (
     <TableContainer component={Paper}>
-      <TablePaginationWrapper count={count} onChangeEvent={(page: number, rowsPerPage: number) => fetch(page, rowsPerPage)}>
-          <>
-            <TableHead>
-              <TableRow>
-                <TableCell />
-                <TableCell align="center">RncCedula</TableCell>
-                <TableCell align="center">Nombre</TableCell>
-                <TableCell align="center">Tipo</TableCell>
-                <TableCell align="center">Estado</TableCell>
-                <TableCell align="center">Total Itebis</TableCell>
-              </TableRow>
-            </TableHead>
-            <TableBody>
-            { isLoading ? 
+      <TablePaginationWrapper
+        count={count}
+        onChangeEvent={(page: number, rowsPerPage: number) =>
+          fetch(page, rowsPerPage)
+        }
+      >
+        <>
+          <TableHead>
+            <TableRow>
+              <TableCell />
+              <TableCell align="center">RncCedula</TableCell>
+              <TableCell align="center">Nombre</TableCell>
+              <TableCell align="center">Tipo</TableCell>
+              <TableCell align="center">Estado</TableCell>
+              <TableCell align="center">Total Itebis</TableCell>
+            </TableRow>
+          </TableHead>
+          <TableBody>
+            {isLoading ? (
               <TableRow>
                 <TableCell align="center" colSpan={6}>
                   <ClipLoader
-                    color={"#36d7b7"}
+                    color={'#36d7b7'}
                     loading={isLoading}
                     size={30}
                     aria-label="Loading Spinner"
@@ -59,16 +68,18 @@ const TableContribuyentes: React.FC = () => {
                   />
                 </TableCell>
               </TableRow>
-            : 
-              <>{Contribuyentes.map((row) => (
-                <RowContribuyentes key={row.rncCedula} Contribuyente={row} />
-              ))}</>
-            }
-            </TableBody>
-          </>
+            ) : (
+              <>
+                {Contribuyentes.map((row) => (
+                  <RowContribuyentes key={row.rncCedula} Contribuyente={row} />
+                ))}
+              </>
+            )}
+          </TableBody>
+        </>
       </TablePaginationWrapper>
     </TableContainer>
   );
-}
+};
 
 export default TableContribuyentes;

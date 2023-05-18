@@ -1,7 +1,7 @@
 export interface Contribuyente {
-    nombre: number;
-    tipo: string;
-    estado: string;
-    rncCedula: string;
-    totalItebis: number;
+  nombre: string;
+  tipo: string;
+  estado: string;
+  rncCedula: string;
+  totalItebis: number;
 }

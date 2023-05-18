@@ -1,6 +1,6 @@
-import { Comprobante } from "./Comprobante";
+import { Comprobante } from './Comprobante';
 
 export interface ResponseComprobante {
-    items: Comprobante[];
-    count: number; 
+  items: Comprobante[];
+  count: number;
 }
